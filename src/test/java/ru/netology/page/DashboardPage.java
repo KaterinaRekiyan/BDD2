@@ -14,7 +14,7 @@ public class DashboardPage {
     private SelenideElement heading = $("[data-test-id=dashboard]");
     private ElementsCollection cards = $$(".list__item div");
 
-    public DashboardPage() {
+    public void DashboardPage() {
         heading.shouldBe(visible);
     }
 
