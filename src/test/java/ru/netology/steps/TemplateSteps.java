@@ -16,6 +16,7 @@ public class TemplateSteps {
     private static VerificationPage verificationPage;
 
 
+
     @Дано("открыта страница с формой авторизации {string}")
     public void openAuthPage(String url) {
         loginPage = Selenide.open(url, LoginPage.class);
@@ -38,18 +39,17 @@ public class TemplateSteps {
 
 
 
-
-
-//    @Когда ("пользователь переводит {string} рублей с карты с номером {string} на свою 1 карту с главной страницы")
-//    public void veriyTransferPage(long amount, String getSecondCardInfo) {
-//        amount = 5000;
+    @Когда ("пользователь переводит {string} рублей с карты с номером {string} на свою 1 карту с главной страницы")
+    public void veriyTransferPage(long amount, String getSecondCardInfo) {
+        amount = 5000;
 //        var firstCardInfo = getFirstCardInfo();
 //        var secondCardInfo = getSecondCardInfo();
-//        var firstCardBalance = dashboardPage.getCardBalance(firstCardInfo);
-//        var secondCardBalance = dashboardPage.getCardBalance(secondCardInfo);
-//        var transferPage = dashboardPage.selectedCardToTransfer(secondCardInfo);
-//        dashboardPage = transferPage.makeValidTransfer(String.valueOf(amount), firstCardInfo);
-//    }
+//        var firstCardBalance = dashboardPage.getCardBalance(getFirstCardInfo());
+//        var secondCardBalance = dashboardPage.getCardBalance(getSecondCardInfo());
+//        var transferPage = dashboardPage.selectedCardToTransfer(getSecondCardInfo());
+        dashboardPage = dashboardPage.selectedCardToTransfer(getSecondCardInfo())
+                .makeValidTransfer(String.valueOf(amount), getFirstCardInfo());
+    }
 
 //    @Тогда ("баланс его 1 карты из списка на главной странице должен стать \"15 000\" рублей")
 //    var expectedBalanceFirstCard = 15000;
