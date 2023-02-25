@@ -39,14 +39,20 @@ public class TemplateSteps {
 
 
 
+    @Пусть("пользователь залогинен с именем 'vasya' и паролем 'qwerty123'")
+    public static void veriyDashboardPage1() {
+        dashboardPage.DashboardPage();
+    }
+
     @Когда ("пользователь переводит {string} рублей с карты с номером {string} на свою 1 карту с главной страницы")
-    public void veriyTransferPage(long amount, String getSecondCardInfo) {
-        amount = 5000;
+    public void veriyTransferPage(long amount, long cardNumber) {
+      amount = 5000;
 //        var firstCardInfo = getFirstCardInfo();
-//        var secondCardInfo = getSecondCardInfo();
+//        var secondCard var Info = getSecondCardInfo();
 //        var firstCardBalance = dashboardPage.getCardBalance(getFirstCardInfo());
 //        var secondCardBalance = dashboardPage.getCardBalance(getSecondCardInfo());
-//        var transferPage = dashboardPage.selectedCardToTransfer(getSecondCardInfo());
+        var transferPage = dashboardPage.selectedCardToTransfer(getSecondCardInfo());
+
         dashboardPage = dashboardPage.selectedCardToTransfer(getSecondCardInfo())
                 .makeValidTransfer(String.valueOf(amount), getFirstCardInfo());
     }
